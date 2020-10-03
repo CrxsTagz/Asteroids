@@ -1,6 +1,7 @@
 #include <iostream>
 #include "car.hpp"
 #include "rectangle.hpp"
+#include "Vector2.hpp"
 
 int main(int argc, char ** argv)
 {    
@@ -56,5 +57,13 @@ int main(int argc, char ** argv)
     renault.drive();
     toyota.drive();
 
+    vector2 vec(50, 60);
+    vector2 vec2(45, 85);
+    vector2 vec3(90, 300);
+
+    vec.print();
+    vec2.print();
+    vec3.print();
+    
     return 0;
 }
