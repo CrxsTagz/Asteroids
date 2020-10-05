@@ -3,7 +3,7 @@
 #include "rectangle.hpp"
 #include "Vector2.hpp"
 
-int main(int argc, char ** argv)
+int main()
 {    
     /*
         char 8 bits (1 byte)
