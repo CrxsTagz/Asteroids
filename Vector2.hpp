@@ -15,7 +15,7 @@ class vector2
         }
 void print()
 {
-        std::cout <<x<< " \n";
-        std::cout <<y<< " \n";
+        std::cout <<x<< " \n"; std::cout <<y<< " \n";
+        
 }        
 };
