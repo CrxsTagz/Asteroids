@@ -9,6 +9,7 @@
 
 //
 #include "SDLEvents.hpp"
+
 #include "TimeManager.hpp"
 
 namespace Engine

@@ -2,7 +2,6 @@
 #include "TimeManager.hpp"
 
 // STL
-//
 #include <cstdlib>
 
 namespace Engine
