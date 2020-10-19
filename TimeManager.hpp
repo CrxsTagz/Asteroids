@@ -34,6 +34,10 @@ namespace Engine
 		* PUBLIC FUNCTIONS
 		* ============================================================= */
 
+/*a double define variables with decimal points, 
+the difference between float and double is that float works with 32bits and a double works with 64bits*/
+
+
 		void    Start();
 		void    Stop();
 		double  GetElapsedTime();  // By default elapsed time is returned in seconds.

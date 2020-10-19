@@ -1,12 +1,17 @@
 #include "SDLEvents.hpp"
 namespace Engine
 {
+
+
+    //constructor / destructor of the SDLEvent
     SDLEvent::SDLEvent()
     {
     }
     SDLEvent::~SDLEvent()
     {
     }
+
+    //function
     void SDLEvent::OnEvent(SDL_Event *event)
     {
         switch (event->type)
