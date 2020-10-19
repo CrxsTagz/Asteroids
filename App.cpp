@@ -187,7 +187,7 @@ namespace Engine
 		// Defining ortho values
 		//
 		float halfWidth = m_width * 0.5f;
-		float halfHeight = m_height * 0.5f;
+		float halfHeight = m_height * 0.5f;  //f means float, you are telling the program you are workin with a float
 
 		// Set viewport to match window
 		//
