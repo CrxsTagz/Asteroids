@@ -11,24 +11,21 @@ namespace Engine
 	const float DESIRED_FRAME_RATE = 60.0f;
 	const float DESIRED_FRAME_TIME = 1.0f / DESIRED_FRAME_RATE;
 
-	App::App(const std::string& title, const int width, const int height)
-		: m_title(title)
-		, m_width(width)
-		, m_height(height)
-		, m_nUpdates(0)
-		, m_timer(new TimeManager)
-		, m_mainWindow(nullptr)
+	App::App(const std::string &title, const int width, const int height)
+		: m_title(title), m_width(width), m_height(height), m_nUpdates(0), m_timer(new TimeManager), m_mainWindow(nullptr)
 	{
 		m_state = GameState::UNINITIALIZED;
 		m_lastFrameTime = m_timer->GetElapsedTimeInSeconds();
+		m_ship = new ship();
 	}
 
 	App::~App()
 	{
 		CleanupSDL();
 
-        // Removes timer allocation
-        delete m_timer;
+		// Removes timer allocation
+		delete m_timer;
+		delete m_ship;
 	}
 
 	void App::Execute()
@@ -80,10 +77,10 @@ namespace Engine
 	}
 
 	void App::OnKeyDown(SDL_KeyboardEvent keyBoardEvent)
-	{		
+	{
 		switch (keyBoardEvent.keysym.scancode)
 		{
-		default:			
+		default:
 			SDL_Log("%S was pressed.", keyBoardEvent.keysym.scancode);
 			break;
 		}
@@ -118,7 +115,7 @@ namespace Engine
 			endTime = m_timer->GetElapsedTimeInSeconds();
 		}
 
-		//double elapsedTime = endTime - startTime;        
+		//double elapsedTime = endTime - startTime;
 
 		m_lastFrameTime = m_timer->GetElapsedTimeInSeconds();
 
@@ -129,101 +126,9 @@ namespace Engine
 	{
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
-
-
-
-/*2f es para dos dimensiones, es decir que entra dos valores
-estos valores van clock wise*/
-//this is the part where it draws in the screen//
-		
-		glBegin(GL_LINE_LOOP);
-        	/*
-			****** Little ship******
-								*/
-			/*
-			
-			glVertex2f(0.0, 20.0);
-			glVertex2f( 12.0,  -10.0);
-			glVertex2f( 6.0, -4.0);
-			glVertex2f( -6.0, -4.0);
-			glVertex2f( -12.0, -10.0);*/
-			
-			
-			/* 
-			
-			==***Kinda the one i wanted to make***==
-
-			glVertex2f(0.0, 90.0);
-			glVertex2f( 3.0,  84.0);
-			glVertex2f( 9.5, 84.0);
-			glVertex2f( 12.0, 78.0);
-			glVertex2f( 12.0, 60.0);
-			glVertex2f(60.0, 30.0);
-			glVertex2f( 60.0,  18.0);
-			glVertex2f( 12.0, 18.0);
-			glVertex2f( 7.2, 0.0);
-			glVertex2f( 0.0, 0.0);
-			glVertex2f(-7.2, 0.0);
-			glVertex2f( -12.0, 18.0);
-			glVertex2f( -60.0, 18.0);
-			glVertex2f( -60.0, 30.0);
-			glVertex2f( -12.0, 60.0);
-			glVertex2f(-12.0, 78.0);
-			glVertex2f( -9.5,  84.0);
-			glVertex2f( -3.0, 84.0);
-			glVertex2f( 0.0, 90.0);
-			*/
-/*
-         ===========BIG SHIP============
-*/
-			glVertex2f(0.0,  150.0);
-			glVertex2f(2.5,  145.0);
-			glVertex2f(7.5,  145.0);
-			glVertex2f(12.5, 135.0);
-			glVertex2f(25.0, 125.0);
-			glVertex2f(25.0, 120.0);
-			glVertex2f(12.5, 125.0);
-			glVertex2f(12.5, 120.0);
-			glVertex2f(12.5, 115.0);
-			glVertex2f(17.5, 110.0);
-			glVertex2f(17.5, 110.5);
-			glVertex2f(17.5, 115.0);
-			glVertex2f(20.0, 115.5);
-			glVertex2f(22.5, 115.0);
-			glVertex2f(22.5, 110.5);
-			glVertex2f(22.5, 110.0);
-			glVertex2f(22.5, 105.5);
-			glVertex2f(25.0, 105.0);
-			glVertex2f(25.0, 100.0);
-			glVertex2f(5.0,  100.0);
-			glVertex2f(3.0,   95.0);
-			glVertex2f(0.0,   95.0);
-			glVertex2f(-3.0,  95.0);
-			glVertex2f(-5.0, 100.0);
-			glVertex2f(-25.0,100.0);
-			glVertex2f(-25.0,105.0);
-			glVertex2f(-22.5,105.5);
-			glVertex2f(-22.5,110.0);
-			glVertex2f(-22.5,110.5);
-			glVertex2f(-22.5,115.0);
-			glVertex2f(-20.0,115.5);
-			glVertex2f(-17.5,115.0);
-			glVertex2f(-17.5,110.5);
-			glVertex2f(-17.5,110.0);
-			glVertex2f(-12.5,115.0);
-			glVertex2f(-12.5,120.0);
-			glVertex2f(-12.5,125.0);
-			glVertex2f(-25.0,120.0);
-			glVertex2f(-25.0,125.0);
-			glVertex2f(-12.5,135.0);
-			glVertex2f(-7.5, 145.0);
-			glVertex2f(-2.5, 145.0);
-			glVertex2f(0.0,  145.0);
-			glVertex2f(2.5,  145.0);
-			glVertex2f(-2.5, 145.0);
-			glVertex2f(0.0,  150.0);
-
 		glEnd();
+
+		void ship_render();
 
 		SDL_GL_SwapWindow(m_mainWindow);
 	}
@@ -241,9 +146,9 @@ estos valores van clock wise*/
 		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 		SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
-		Uint32 flags =  SDL_WINDOW_OPENGL     | 
-						SDL_WINDOW_SHOWN      | 
-						SDL_WINDOW_RESIZABLE;
+		Uint32 flags = SDL_WINDOW_OPENGL |
+					   SDL_WINDOW_SHOWN |
+					   SDL_WINDOW_RESIZABLE;
 
 		m_mainWindow = SDL_CreateWindow(
 			m_title.c_str(),
@@ -251,8 +156,7 @@ estos valores van clock wise*/
 			SDL_WINDOWPOS_CENTERED,
 			m_width,
 			m_height,
-			flags
-		);
+			flags);
 
 		if (!m_mainWindow)
 		{
@@ -275,7 +179,7 @@ estos valores van clock wise*/
 		// Defining ortho values
 		//
 		float halfWidth = m_width * 0.5f;
-		float halfHeight = m_height * 0.5f;  //f means float, you are telling the program you are workin with a float
+		float halfHeight = m_height * 0.5f; //f means float, you are telling the program you are workin with a float
 
 		// Set viewport to match window
 		//
@@ -337,4 +241,4 @@ estos valores van clock wise*/
 		//
 		CleanupSDL();
 	}
-}
+} // namespace Engine
