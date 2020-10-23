@@ -17,7 +17,7 @@ namespace Engine
 	{
 		m_state = GameState::UNINITIALIZED;
 		m_lastFrameTime = m_timer->GetElapsedTimeInSeconds();
-		m_ship = new ship();
+		m_ship = new ship;
 	}
 
 	App::~App()
@@ -128,7 +128,7 @@ namespace Engine
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glEnd();
-		void ship_render();
+		m_ship->ship_render();
 
 		SDL_GL_SwapWindow(m_mainWindow);
 	}
