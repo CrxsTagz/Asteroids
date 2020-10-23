@@ -45,6 +45,7 @@ namespace Engine
         bool Init();
         void Update();
         void Render();
+        void ship_render();
 
     private:
         /* =============================================================

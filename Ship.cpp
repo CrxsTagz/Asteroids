@@ -95,7 +95,5 @@ namespace Engine
 		glVertex2f(0.0, 150.0);
 
 		glEnd();
-
-		return;
 	};
 } // namespace Engine

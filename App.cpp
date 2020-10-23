@@ -1,6 +1,7 @@
 #include "App.hpp"
 #include <iostream>
 #include <algorithm>
+#include "Ship.hpp"
 
 // OpenGL includes
 // #include <GL/glew.h>
@@ -127,7 +128,6 @@ namespace Engine
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glEnd();
-
 		void ship_render();
 
 		SDL_GL_SwapWindow(m_mainWindow);
