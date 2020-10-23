@@ -1,15 +1,16 @@
 #pragma once
 #ifndef SHIP_HPP
 #define SHIP_HPP
+#include "iostream"
 
 namespace Engine
 {
     class ship
     {
     public:
-        void ship_render(); //miop
+        void ship_render();
 
-    protected: //=== vale si, pero no ===
+    protected:
         int m_ship;
     };
 } // namespace Engine

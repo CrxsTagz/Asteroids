@@ -130,7 +130,7 @@ namespace Engine
 		glEnd();
 		m_ship->ship_render();
 
-		SDL_GL_SwapWindow(m_mainWindow); //miop
+		SDL_GL_SwapWindow(m_mainWindow);
 	}
 
 	bool App::SDLInit()
