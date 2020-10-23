@@ -1,6 +1,7 @@
 #pragma once
 #ifndef SHIP_HPP
 #define SHIP_HPP
+#include "iostream"
 
 namespace Engine
 {
@@ -11,8 +12,6 @@ namespace Engine
 
     protected:
         int m_ship;
-        int x;
-        int y;
     };
 } // namespace Engine
 

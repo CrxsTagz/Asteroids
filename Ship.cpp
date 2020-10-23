@@ -1,11 +1,10 @@
 #include <iostream>
 #include "Ship.hpp"
 #include <SDL2/SDL_opengl.h>
-#include "App.hpp"
 
 namespace Engine
 {
-	void ship_render()
+	void ship::ship_render()
 	{
 
 		glBegin(GL_LINE_LOOP);
