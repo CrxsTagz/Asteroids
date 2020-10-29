@@ -1,10 +1,11 @@
 #include "App.hpp"
-#include <iostream>
 #include <algorithm>
+//Hpp
 #include "Ship.hpp"
+#include "Asteroid.hpp"
 
 // OpenGL includes
-// #include <GL/glew.h>
+#include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
 
 namespace Engine
@@ -17,7 +18,8 @@ namespace Engine
 	{
 		m_state = GameState::UNINITIALIZED;
 		m_lastFrameTime = m_timer->GetElapsedTimeInSeconds();
-		m_ship = new ship;
+		m_ship = new Ship;
+		m_asteroid = new Asteroid;
 	}
 
 	App::~App()
@@ -26,14 +28,18 @@ namespace Engine
 
 		// Removes timer allocation
 		delete m_timer;
+
+		//Removes ship allocation
 		delete m_ship;
+		//Removes asteroid allocation
+		delete m_asteroid;
 	}
 
 	void App::Execute()
 	{
 		if (m_state != GameState::INIT_SUCCESSFUL)
 		{
-			std::cerr << "Game INIT was not successful." << std::endl;
+			SDL_Log("Game INIT was not successful.");
 			return;
 		}
 
@@ -79,8 +85,25 @@ namespace Engine
 
 	void App::OnKeyDown(SDL_KeyboardEvent keyBoardEvent)
 	{
+		const float MOVE_UNIT = 15.f;
 		switch (keyBoardEvent.keysym.scancode)
 		{
+		case SDL_SCANCODE_W:
+			SDL_Log("Going up");
+			m_ship->Move(0.0f, MOVE_UNIT);
+			break;
+		case SDL_SCANCODE_A:
+			SDL_Log("Going left");
+			m_ship->Move(-MOVE_UNIT, 0.0f);
+			break;
+		case SDL_SCANCODE_S:
+			SDL_Log("Going down");
+			m_ship->Move(0.0f, -MOVE_UNIT);
+			break;
+		case SDL_SCANCODE_D:
+			SDL_Log("Going right");
+			m_ship->Move(MOVE_UNIT, 0.0f);
+			break;
 		default:
 			SDL_Log("%S was pressed.", keyBoardEvent.keysym.scancode);
 			break;
@@ -128,7 +151,8 @@ namespace Engine
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glEnd();
-		m_ship->ship_render();
+		m_ship->Render();
+		m_asteroid->Render();
 
 		SDL_GL_SwapWindow(m_mainWindow);
 	}
@@ -139,7 +163,7 @@ namespace Engine
 		//
 		if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		{
-			std::cerr << "Failed to init SDL" << std::endl;
+			SDL_Log("Failed to init SDL");
 			return false;
 		}
 
@@ -160,7 +184,7 @@ namespace Engine
 
 		if (!m_mainWindow)
 		{
-			std::cerr << "Failed to create window!" << std::endl;
+			SDL_Log("Failed to create window!");
 			SDL_Quit();
 			return false;
 		}

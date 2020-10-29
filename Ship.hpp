@@ -1,17 +1,31 @@
 #pragma once
 #ifndef SHIP_HPP
 #define SHIP_HPP
-#include <iostream>
+
+#include "Vector2.hpp"
 
 namespace Engine
 {
-    class ship
+    class Ship
     {
     public:
-        void ship_render();
+        /* ==========================
+        * CONSTRUCTORS
+        * ==========================*/
+        Ship();
+        Ship(float, float);
+        ~Ship();
+        /* ==========================
+        * PUBLIC FUNCTIONS
+        * ==========================*/
+        void Move(float, float);
+        void Render();
 
-    protected:
-        int m_ship;
+    private:
+        /* ==========================
+        * MEMBERS
+        * ==========================*/
+        Engine::Math::Vector2 m_position;
     };
 } // namespace Engine
 

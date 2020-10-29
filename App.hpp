@@ -6,13 +6,15 @@
 // C++ STL
 #include <string>
 #include <list>
-#include "Ship.hpp"
 //
 #include "SDLEvents.hpp"
 #include "TimeManager.hpp"
 
 namespace Engine
 {
+
+    class Ship;
+    class Asteroid;
     class App : public SDLEvent
     {
     public:
@@ -45,7 +47,6 @@ namespace Engine
         bool Init();
         void Update();
         void Render();
-        void ship_render();
 
     private:
         /* =============================================================
@@ -72,7 +73,8 @@ namespace Engine
         SDL_GLContext m_context;
         GameState::State m_state;
         Engine::TimeManager *m_timer;
-        ship *m_ship;
+        Engine::Ship *m_ship;
+        Engine::Asteroid *m_asteroid;
     };
 } // namespace Engine
 
