@@ -6,13 +6,13 @@
 // C++ STL
 #include <string>
 #include <list>
+
 //
 #include "SDLEvents.hpp"
 #include "TimeManager.hpp"
 
 namespace Engine
 {
-
     class Ship;
     class Asteroid;
     class App : public SDLEvent

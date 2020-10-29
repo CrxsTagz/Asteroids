@@ -1,12 +1,13 @@
 #include "App.hpp"
 #include <algorithm>
-//Hpp
-#include "Ship.hpp"
-#include "Asteroid.hpp"
 
 // OpenGL includes
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
+
+//
+#include "Ship.hpp"
+#include "Asteroid.hpp"
 
 namespace Engine
 {
@@ -29,9 +30,10 @@ namespace Engine
 		// Removes timer allocation
 		delete m_timer;
 
-		//Removes ship allocation
+		// Removes ship allocation
 		delete m_ship;
-		//Removes asteroid allocation
+
+		// Removes asteroid
 		delete m_asteroid;
 	}
 
@@ -139,8 +141,6 @@ namespace Engine
 			endTime = m_timer->GetElapsedTimeInSeconds();
 		}
 
-		//double elapsedTime = endTime - startTime;
-
 		m_lastFrameTime = m_timer->GetElapsedTimeInSeconds();
 
 		m_nUpdates++;
@@ -150,7 +150,8 @@ namespace Engine
 	{
 		glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
-		glEnd();
+
+		// Render code goes here
 		m_ship->Render();
 		m_asteroid->Render();
 
@@ -203,7 +204,7 @@ namespace Engine
 		// Defining ortho values
 		//
 		float halfWidth = m_width * 0.5f;
-		float halfHeight = m_height * 0.5f; //f means float, you are telling the program you are workin with a float
+		float halfHeight = m_height * 0.5f;
 
 		// Set viewport to match window
 		//

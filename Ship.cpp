@@ -1,10 +1,10 @@
-#include <iostream>
 #include "Ship.hpp"
-#include <SDL2/SDL_opengl.h>
+
+#include <gl\GL.h>
+#include <iostream>
 
 namespace Engine
 {
-
 	inline float wrap(float x, float min, float max)
 	{
 		if (x < min)
@@ -12,6 +12,23 @@ namespace Engine
 		if (x > max)
 			return min + (x - max);
 		return x;
+	}
+
+	Ship::Ship()
+		: m_position(Math::Vector2::Origin)
+	{
+		std::cout << "Construction of ship\n";
+	}
+
+	Ship::Ship(float _x, float _y)
+		: m_position(_x, _y)
+	{
+		std::cout << "Construction of ship\n";
+	}
+
+	Ship::~Ship()
+	{
+		std::cout << "Destruction of ship\n";
 	}
 
 	void Ship::Move(float _x, float _y)
@@ -37,6 +54,7 @@ namespace Engine
 	{
 
 		glLoadIdentity();
+
 		glTranslatef(m_position.x, m_position.y, 0.0);
 
 		glBegin(GL_LINE_LOOP);

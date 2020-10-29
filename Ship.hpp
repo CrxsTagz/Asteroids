@@ -1,4 +1,5 @@
 #pragma once
+
 #ifndef SHIP_HPP
 #define SHIP_HPP
 
@@ -28,5 +29,4 @@ namespace Engine
         Engine::Math::Vector2 m_position;
     };
 } // namespace Engine
-
 #endif
