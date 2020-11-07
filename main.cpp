@@ -1,7 +1,5 @@
-#include <cassert>
 #include <iostream>
 #include "App.hpp"
-#include "Ship.hpp"
 
 const int WIDTH = 1136;
 const int HEIGHT = 640;
