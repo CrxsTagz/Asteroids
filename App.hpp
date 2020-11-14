@@ -47,6 +47,9 @@ namespace Engine
             bool Init            ( );
             void Update          ( );
             void Render          ( );
+            int GetWidth         ( ) {return m_width; }
+            int GetHeight        ( ) {return m_height;}
+            
         private:
             /* =============================================================
             * PRIVATE FUNCTIONS

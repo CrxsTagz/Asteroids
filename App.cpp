@@ -20,7 +20,7 @@ namespace Engine
 		m_state = GameState::UNINITIALIZED;
 		m_lastFrameTime = m_timer->GetElapsedTimeInSeconds();
 
-		m_ship = new Engine::Ship;
+		m_ship = new Engine::Ship(this);
 		// m_asteroid = new Asteroid;
 	}
 

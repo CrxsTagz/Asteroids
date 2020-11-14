@@ -18,8 +18,8 @@ namespace Engine
         /* ==========================
         * CONSTRUCTORS
         * ==========================*/
-        Ship();
-        Ship(float, float);
+        Ship(App *parent);
+        Ship(App *parent, float, float);
         ~Ship();
         /* ==========================
         * PUBLIC FUNCTIONS
@@ -36,6 +36,7 @@ namespace Engine
         * PRIVATE FUNCTIONS
         * ==========================*/
         void ApplyImpulse(Math::Vector2 impulse);
+        void ApplyDrag(Math::Vector2 force);
         /* ==========================
         * MEMBERS
         * ==========================*/
@@ -46,6 +47,7 @@ namespace Engine
         float m_mass;
         float m_rotation;
         float m_currentSpeed;
+        App *m_parent;
     };
 } // namespace Engine
 #endif
