@@ -1,21 +1,37 @@
+#pragma once
 #include <iostream>
-#include <cmath>
 
-class vector2
+namespace Engine
 {
-        private:
+    namespace Math
+    {
+        struct Vector2
+        {
+            /* ==========================
+            * STATIC
+            * ==========================*/
+            static Vector2 Origin;
+
+            /* ==========================
+            * CONSTRUCTORS
+            * ==========================*/
+            Vector2();
+            Vector2(float, float);
+            Vector2(float);
+
+            /* ==========================
+            * FUNCTIONS
+            * ==========================*/
+            float Length() const;
+            float SquaredLength() const;
+            float Normalize();
+
+            /* ==========================
+            * CONSTRUCTORS
+            * ==========================*/
             float x;
             float y;
-        
-        public:
-        vector2(float cx, float cy)
-        {
-            x = cx;
-            y = cy;
-        }
-void print()
-{
-        std::cout <<x<< " \n"; std::cout <<y<< " \n";
-        
-}        
-};
+            float length;
+        };
+    } // namespace Math
+} // namespace Engine
