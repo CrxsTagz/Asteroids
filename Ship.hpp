@@ -30,6 +30,7 @@ namespace Engine
         void RotateRight(float deltaTime);
         void Update(float deltaTime);
         void Render();
+        Ship();
 
     private:
         /* ==========================
@@ -41,13 +42,24 @@ namespace Engine
         * MEMBERS
         * ==========================*/
         std::vector<Engine::Math::Vector2> m_points;
+
         Engine::Math::Vector2 m_position;
+
         Engine::Math::Vector2 m_velocity;
+
         float m_angle;
+
         float m_mass;
+
         float m_rotation;
+
         float m_currentSpeed;
+
         App *m_parent;
+
+        int m_current_Ship;
+
+        int m_ship;
     };
 } // namespace Engine
 #endif

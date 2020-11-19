@@ -64,6 +64,12 @@ namespace Engine
 		}
 	}
 
+	/*void App::App::
+	{
+		m_current_Ship = new Ship::Ship();
+		m_object.push_back(m_current_Ship);
+	}*/
+
 	bool App::Init()
 	{
 		// Init the external dependencies
@@ -106,6 +112,12 @@ namespace Engine
 			SDL_Log("Going right");
 			m_ship->RotateRight(DESIRED_FRAME_TIME);
 			break;
+		case SDL_SCANCODE_M:
+			m_ship->ChangeShip();
+			break;
+
+		case SDL_SCANCODE_P:
+			//m_ship->Respawn();
 		default:
 			SDL_Log("%S was pressed.", keyBoardEvent.keysym.scancode);
 			break;
