@@ -5,6 +5,8 @@ namespace Engine
 {
     namespace Math
     {
+
+
         Vector2 Vector2::Origin = Vector2();
 
         Vector2::Vector2()

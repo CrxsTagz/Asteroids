@@ -1,5 +1,7 @@
 #include "Ship.hpp"
 #include "App.hpp"
+#include "Physics.hpp"
+#include "Vector2.hpp"
 
 #include <gl\GL.h>
 
@@ -9,21 +11,6 @@
 
 namespace Engine
 {
-	// TODO: RR: Move this to a lib
-	const float PI = 3.141592653f;
-	const float MAX_VELOCITY = 500.0f;
-	const float THRUST = 15.0f;
-	const float DRAG_FORCE = 0.999f;
-	const float ANGLE_OFFSET = 90.0f;
-
-	inline float wrap(float x, float min, float max)
-	{
-		if (x < min)
-			return max - (min - x);
-		if (x > max)
-			return min + (x - max);
-		return x;
-	}
 
 	Ship::Ship(App *parent)
 		: m_position(Math::Vector2::Origin), m_velocity(Math::Vector2::Origin), m_angle(0.0f), m_rotation(250.0f), m_mass(1.0f), m_parent(parent) //TODO: RR: contemplate using a component based design approach
@@ -70,8 +57,8 @@ namespace Engine
 	{
 		if (m_mass > 0)
 		{
-			m_velocity.x += (impulse.x / m_mass) * cosf((m_angle + ANGLE_OFFSET) * (PI / 180));
-			m_velocity.y += (impulse.x / m_mass) * sinf((m_angle + ANGLE_OFFSET) * (PI / 180));
+			m_velocity.x += (impulse.x / m_mass) * cosf((m_angle + ANGLE_OFFSET) * (Engine::Math::Vector2::PI / 180));
+			m_velocity.y += (impulse.x / m_mass) * sinf((m_angle + ANGLE_OFFSET) * (Engine::Math::Vector2::PI / 180));
 		}
 	}
 
@@ -96,7 +83,7 @@ namespace Engine
 		//Applies drag
 
 		ApplyDrag(Math::Vector2(DRAG_FORCE));
-
+		//TODO::RR:: Apply this to the asteroids
 		//calcuations for wrap around
 
 		float halfWidth = m_parent->GetWidth() / 2.0f;
@@ -111,11 +98,6 @@ namespace Engine
 		m_position.x = wrap(m_position.x, worldMinX, worldMaxX);
 		m_position.y = wrap(m_position.y, worldMinY, worldMaxY);
 	}
-
-	/*void Ship::Respawn()
-{
-
-}*/
 
 	void Ship::ChangeShip()
 	{
@@ -211,6 +193,7 @@ namespace Engine
 			break;
 		}
 	}
+
 	void Ship::Render()
 	{
 		glLoadIdentity();
@@ -229,5 +212,22 @@ namespace Engine
 		}
 		glEnd();
 	};
-	
+
+	void Ship::Respawn()
+	{
+		glLoadIdentity();
+		m_position.x = 0.0f;
+		m_position.y = 0.0f;
+		m_velocity.x = 0.0f;
+		m_velocity.y = 0.0f;
+		m_angle = 0.0f;
+
+		glTranslatef(m_position.x, m_position.y, 0.0);
+
+		glRotatef(m_angle, 0.0f, 0.0f, 1.0f);
+
+		glBegin(GL_LINE_LOOP);
+		glEnd();
+	}
+
 } // namespace Engine

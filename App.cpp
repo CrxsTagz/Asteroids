@@ -38,6 +38,12 @@ namespace Engine
 		// delete m_asteroid;
 	}
 
+	/*void App::Respawn()
+	{
+		m_current_Ship = new Engine::Ship(this);
+		
+	}*/
+
 	void App::Execute()
 	{
 		if (m_state != GameState::INIT_SUCCESSFUL)
@@ -63,12 +69,6 @@ namespace Engine
 			Render();
 		}
 	}
-
-	/*void App::App::
-	{
-		m_current_Ship = new Ship::Ship();
-		m_object.push_back(m_current_Ship);
-	}*/
 
 	bool App::Init()
 	{
@@ -98,26 +98,34 @@ namespace Engine
 		const float MOVE_UNIT = 15.f;
 		switch (keyBoardEvent.keysym.scancode)
 		{
+
 		case SDL_SCANCODE_W:
 			SDL_Log("Going up");
 			m_ship->MoveUp();
 			break;
+
 		case SDL_SCANCODE_A:
 			SDL_Log("Going left");
 			m_ship->RotateLeft(DESIRED_FRAME_TIME);
 			break;
+
 		case SDL_SCANCODE_S:
 			break;
+
 		case SDL_SCANCODE_D:
 			SDL_Log("Going right");
 			m_ship->RotateRight(DESIRED_FRAME_TIME);
 			break;
+
 		case SDL_SCANCODE_M:
 			m_ship->ChangeShip();
 			break;
 
 		case SDL_SCANCODE_P:
-			//m_ship->Respawn();
+			m_ship->Respawn();
+
+			break;
+
 		default:
 			SDL_Log("%S was pressed.", keyBoardEvent.keysym.scancode);
 			break;
@@ -261,8 +269,6 @@ namespace Engine
 
 	void App::OnResize(int width, int height)
 	{
-		// TODO: Add resize functionality
-		//
 		m_width = width;
 		m_height = height;
 

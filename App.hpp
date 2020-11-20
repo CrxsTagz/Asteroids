@@ -64,7 +64,7 @@ namespace Engine
         void OnKeyUp(SDL_KeyboardEvent keyBoardEvent) override;
 
         /* =============================================================
-            * MEMBER
+            * MEMBERS
             * ============================================================= */
         int m_width;
         int m_height;
@@ -77,8 +77,7 @@ namespace Engine
         Engine::TimeManager *m_timer;
         Engine::Ship *m_ship;
         Engine::Asteroid *m_asteroid;
-        int m_current_Ship;
-        Engine::Ship *m_object;
+        Engine::Ship *m_current_Ship;
     };
 } // namespace Engine
 
