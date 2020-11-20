@@ -1,5 +1,9 @@
 #include <iostream>
 
+//include new version
+
+#define release "0.4.0";
+
 //
 #include "App.hpp"
 
