@@ -38,12 +38,6 @@ namespace Engine
 		// delete m_asteroid;
 	}
 
-	/*void App::Respawn()
-	{
-		m_current_Ship = new Engine::Ship(this);
-		
-	}*/
-
 	void App::Execute()
 	{
 		if (m_state != GameState::INIT_SUCCESSFUL)
