@@ -11,11 +11,6 @@ namespace Engine
     const float MIN_SIZE = 25.0f;
     const float MAX_SIZE = 45.0f;
 
-    static constexpr float MAX_VELOCITY = 500.0f;
-    static constexpr float THRUST = 15.0f;
-    static constexpr float DRAG_FORCE = 0.999f;
-    static constexpr float ANGLE_OFFSET = 90.0f;
-
     // Move this out to a Math
     const float PI = 3.141592653;
 
@@ -100,5 +95,23 @@ namespace Engine
             glVertex2f((*it).x, (*it).y);
         }
         glEnd();
+        for (int i = 0; i < 16; i++)
+        {
+            float x = randInRange(-150.0f, 150.0f);
+            float y = randInRange(-150.0f, 150.0f);
+            m_position = Engine::Math::Vector2(x, y);
+            ApplyImpulse(Engine::Math::Vector2(x, y));
+            glLoadIdentity();
+            glTranslatef(m_position.x, m_position.y, 0.f);
+            glRotatef(m_angle, 0.0f, 0.0f, 1.0f);
+
+            glBegin(GL_LINE_LOOP);
+            std::vector<Engine::Math::Vector2>::iterator it = m_points.begin();
+            for (; it != m_points.end(); ++it)
+            {
+                glVertex2f((*it).x, (*it).y);
+            }
+            glEnd();
+        }
     }
 } // namespace Engine

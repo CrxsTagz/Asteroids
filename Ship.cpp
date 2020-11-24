@@ -116,7 +116,7 @@ namespace Engine
 	void Ship::ChangeShip()
 	{
 
-		m_current_Ship = ++m_current_Ship % 3;
+		m_current_Ship = ++m_current_Ship % 5;
 
 		m_points.clear();
 
@@ -153,6 +153,87 @@ namespace Engine
 			m_points.push_back(Math::Vector2(-9.5, 84.0));
 			m_points.push_back(Math::Vector2(-3.0, 84.0));
 			m_points.push_back(Math::Vector2(0.0, 90.0));
+			break;
+
+
+		case 3:
+
+			m_points.push_back(Math::Vector2(0.0f, 20.0f));
+			m_points.push_back(Math::Vector2(4.0f, 20.0f));
+			m_points.push_back(Math::Vector2(4.0f, 44.0f));
+			m_points.push_back(Math::Vector2(10.0f, 44.0f));
+			m_points.push_back(Math::Vector2(12.0f, 40.0f));
+			m_points.push_back(Math::Vector2(16.0f, 32.0f));
+			m_points.push_back(Math::Vector2(20.0f, 24.0f));
+			m_points.push_back(Math::Vector2(20.0f, 20.0f));
+			m_points.push_back(Math::Vector2(22.0f, 24.0f));
+			m_points.push_back(Math::Vector2(24.0f, 28.0f));
+			m_points.push_back(Math::Vector2(28.0f, 28.0f));
+			m_points.push_back(Math::Vector2(28.0f, 12.0f));
+			m_points.push_back(Math::Vector2(24.0f, 12.0f));
+			m_points.push_back(Math::Vector2(28.0f, 4.0f));
+			m_points.push_back(Math::Vector2(28.0f, -8.0f));
+			m_points.push_back(Math::Vector2(24.0f, -16.0f));
+			m_points.push_back(Math::Vector2(20.0f, -20.0f));
+			m_points.push_back(Math::Vector2(20.0f, -24.0f));
+			m_points.push_back(Math::Vector2(12.0f, -28.0f));
+			m_points.push_back(Math::Vector2(4.0f, -32.0f));
+			m_points.push_back(Math::Vector2(-4.0f, -32.0f));
+			m_points.push_back(Math::Vector2(-12.0f, -28.0f));
+			m_points.push_back(Math::Vector2(-20.0f, -24.0f));
+			m_points.push_back(Math::Vector2(-20.0f, -20.0f));
+			m_points.push_back(Math::Vector2(-24.0f, -16.0f));
+			m_points.push_back(Math::Vector2(-28.0f, -8.0f));
+			m_points.push_back(Math::Vector2(-28.0f, 4.0f));
+			m_points.push_back(Math::Vector2(-24.0f, 12.0f));
+			m_points.push_back(Math::Vector2(-20.0f, 20.0f));
+			m_points.push_back(Math::Vector2(-20.0f, 24.0f));
+			m_points.push_back(Math::Vector2(-16.0f, 32.0f));
+			m_points.push_back(Math::Vector2(-12.0f, 40.0f));
+			m_points.push_back(Math::Vector2(-10.0f, 44.0f));
+			m_points.push_back(Math::Vector2(-4.0f, 44.0f));
+			m_points.push_back(Math::Vector2(-4.0f, 20.0f));
+
+			break;
+
+			case 4:
+			m_points.push_back(Math::Vector2(0.0f, 40.0f));
+			m_points.push_back(Math::Vector2(8.0f, 40.0f));
+			m_points.push_back(Math::Vector2(12.0f, 36.0f));
+			m_points.push_back(Math::Vector2(20.0f, 28.0f));
+			m_points.push_back(Math::Vector2(22.0f, 24.0f));
+			m_points.push_back(Math::Vector2(24.0f, 20.0f));
+			m_points.push_back(Math::Vector2(24.0f, 16.0f));
+			m_points.push_back(Math::Vector2(20.0f, 8.0f));
+			m_points.push_back(Math::Vector2(16.0f, 0.0f));
+			m_points.push_back(Math::Vector2(12.0f, -4.0f));
+			m_points.push_back(Math::Vector2(12.0f, -12.0f));
+			m_points.push_back(Math::Vector2(18.0f, -16.0f));
+			m_points.push_back(Math::Vector2(18.0f, -4.0f));
+			m_points.push_back(Math::Vector2(24.0f, -4.0f));
+			m_points.push_back(Math::Vector2(24.0f, -40.0f));
+			m_points.push_back(Math::Vector2(18.0f, -40.0f));
+			m_points.push_back(Math::Vector2(18.0f, -24.0f));
+			m_points.push_back(Math::Vector2(12.0f, -20.0f));
+			m_points.push_back(Math::Vector2(4.0f, -14.0f));
+			m_points.push_back(Math::Vector2(-4.0f, -14.0f));
+			m_points.push_back(Math::Vector2(-12.0f, -20.0f));
+			m_points.push_back(Math::Vector2(-18.0f, -24.0f));
+			m_points.push_back(Math::Vector2(-18.0f, -40.0f));
+			m_points.push_back(Math::Vector2(-24.0f, -40.0f));
+			m_points.push_back(Math::Vector2(-24.0f, -4.0f));
+			m_points.push_back(Math::Vector2(-18.0f, -4.0f));
+			m_points.push_back(Math::Vector2(-18.0f, -16.0f));
+			m_points.push_back(Math::Vector2(-12.0f, -12.0f));
+			m_points.push_back(Math::Vector2(-12.0f, -4.0f));
+			m_points.push_back(Math::Vector2(-16.0f, 0.0f));
+			m_points.push_back(Math::Vector2(-20.0f, 8.0f));
+			m_points.push_back(Math::Vector2(-24.0f, 16.0f));
+			m_points.push_back(Math::Vector2(-24.0f, 20.0f));
+			m_points.push_back(Math::Vector2(-22.0f, 24.0f));
+			m_points.push_back(Math::Vector2(-20.0f, 28.0f));
+			m_points.push_back(Math::Vector2(-12.0f, 36.0f));
+			m_points.push_back(Math::Vector2(-8.0f, 40.0f));
 			break;
 
 		default:
