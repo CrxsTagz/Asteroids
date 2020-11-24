@@ -21,7 +21,7 @@ namespace Engine
 		m_lastFrameTime = m_timer->GetElapsedTimeInSeconds();
 
 		m_ship = new Engine::Ship(this);
-		// m_asteroid = new Asteroid;
+		m_asteroid = new Engine::Asteroid(this);
 	}
 
 	App::~App()
@@ -29,13 +29,16 @@ namespace Engine
 		CleanupSDL();
 
 		// Removes timer allocation
+
 		delete m_timer;
 
 		// Removes ship allocation
+
 		delete m_ship;
 
 		// Removes asteroid
-		// delete m_asteroid;
+
+		delete m_asteroid;
 	}
 
 	void App::Execute()
@@ -92,20 +95,34 @@ namespace Engine
 		const float MOVE_UNIT = 15.f;
 		switch (keyBoardEvent.keysym.scancode)
 		{
+
 		case SDL_SCANCODE_W:
 			SDL_Log("Going up");
 			m_ship->MoveUp();
 			break;
+
 		case SDL_SCANCODE_A:
 			SDL_Log("Going left");
 			m_ship->RotateLeft(DESIRED_FRAME_TIME);
 			break;
+
 		case SDL_SCANCODE_S:
 			break;
+
 		case SDL_SCANCODE_D:
 			SDL_Log("Going right");
 			m_ship->RotateRight(DESIRED_FRAME_TIME);
 			break;
+
+		case SDL_SCANCODE_M:
+			m_ship->ChangeShip();
+			break;
+
+		case SDL_SCANCODE_P:
+			m_ship->Respawn();
+
+			break;
+
 		default:
 			SDL_Log("%S was pressed.", keyBoardEvent.keysym.scancode);
 			break;
@@ -132,6 +149,7 @@ namespace Engine
 		// Update code goes here
 		//
 		m_ship->Update(DESIRED_FRAME_TIME);
+		m_asteroid->Update(DESIRED_FRAME_TIME);
 
 		double endTime = m_timer->GetElapsedTimeInSeconds();
 		double nextTimeFrame = startTime + DESIRED_FRAME_TIME;
@@ -154,7 +172,7 @@ namespace Engine
 
 		// Render code goes here
 		m_ship->Render();
-		// m_asteroid->Render();
+		m_asteroid->Render();
 
 		SDL_GL_SwapWindow(m_mainWindow);
 	}
@@ -249,8 +267,6 @@ namespace Engine
 
 	void App::OnResize(int width, int height)
 	{
-		// TODO: Add resize functionality
-		//
 		m_width = width;
 		m_height = height;
 

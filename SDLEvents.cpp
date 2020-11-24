@@ -1,7 +1,8 @@
+
 #include "SDLEvents.hpp"
+
 namespace Engine
 {
-
 
     //constructor / destructor of the SDLEvent
     SDLEvent::SDLEvent()
@@ -46,12 +47,13 @@ namespace Engine
         case SDL_SYSWMEVENT:
             //Ignore
             break;
+
         default:
             OnUser(event->user.type, event->user.code, event->user.data1, event->user.data2);
             break;
         }
     }
-    void SDLEvent::HandleWindowEvents(SDL_Event* event)
+    void SDLEvent::HandleWindowEvents(SDL_Event *event)
     {
         switch (event->window.event)
         {
@@ -86,7 +88,7 @@ namespace Engine
             break;
         }
     }
-    void SDLEvent::HandleMouseButtonDownEvents(SDL_Event* event)
+    void SDLEvent::HandleMouseButtonDownEvents(SDL_Event *event)
     {
         switch (event->button.button)
         {
@@ -101,7 +103,7 @@ namespace Engine
             break;
         }
     }
-    void SDLEvent::HandleMouseButtonUpEvents(SDL_Event* event)
+    void SDLEvent::HandleMouseButtonUpEvents(SDL_Event *event)
     {
         switch (event->button.button)
         {
