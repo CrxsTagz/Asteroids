@@ -1,3 +1,4 @@
 # Asteroids
-Making agame in c++ using Visual Studio Code for the subject programming 1
+
+Making a game in c++ using Visual Studio Code for the subject programming 1
 

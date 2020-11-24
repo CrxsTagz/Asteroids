@@ -1,6 +1,6 @@
 #include "Ship.hpp"
 #include "App.hpp"
-#include "Physics.hpp"
+//#include "Physics.hpp"
 #include "Vector2.hpp"
 
 #include <gl\GL.h>
@@ -11,6 +11,20 @@
 
 namespace Engine
 {
+
+	static constexpr float MAX_VELOCITY = 500.0f;
+	static constexpr float THRUST = 15.0f;
+	static constexpr float DRAG_FORCE = 0.999f;
+	static constexpr float ANGLE_OFFSET = 90.0f;
+
+	inline float wrap(float x, float min, float max)
+	{
+		if (x < min)
+			return max - (min - x);
+		if (x > max)
+			return min + (x - max);
+		return x;
+	}
 
 	Ship::Ship(App *parent)
 		: m_position(Math::Vector2::Origin), m_velocity(Math::Vector2::Origin), m_angle(0.0f), m_rotation(250.0f), m_mass(1.0f), m_parent(parent) //TODO: RR: contemplate using a component based design approach
