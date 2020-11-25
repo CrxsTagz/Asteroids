@@ -173,6 +173,7 @@ namespace Engine
 		// Render code goes here
 		m_ship->Render();
 		m_asteroid->Render();
+		
 
 		SDL_GL_SwapWindow(m_mainWindow);
 	}
