@@ -8,22 +8,37 @@
 #include "GameObject.hpp"
 
 namespace Engine
-{    
+{
     class App;
     class Asteroid : public GameObject
-    {                
-        public:  
-            /* ==========================
+    {
+    public:
+        /* ==========================
+            * ENUMERATIONS
+            * ==========================*/
+        struct AsteroidSize
+        {
+            enum Size
+            {
+                BIG = 0,
+                MEDIUM = 1,
+                SMALL = 2
+            };
+        };
+        /* ==========================
             * PUBLIC FUNCTIONS
             * ==========================*/
-            Asteroid(App* parent);
-            void Update(float deltaTime);
-        private:
-            /* ==========================
+        Asteroid(AsteroidSize::Size size, App *parent);
+        void Update(float deltaTime);
+        inline AsteroidSize::Size GetSize() { return m_size; }
+
+    private:
+        /* ==========================
             * MEMBERS
-            * ==========================*/            
-            App* m_parent;
+            * ==========================*/
+        App *m_parent;
+        AsteroidSize::Size m_size;
     };
-}
+} // namespace Engine
 
 #endif

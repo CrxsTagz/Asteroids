@@ -16,14 +16,14 @@ namespace Engine
 {
 
 	Ship::Ship(App *parent)
-		: GameObject(1.0f, 0.0f, 250.0f), m_parent(parent) // TODO: RR: Contemplate using a component based design approach
+		: GameObject(1.0f, RADIUS, 0.0f, 250.0f), m_parent(parent) // TODO: RR: Contemplate using a component based design approach
 	{
 		std::cout << "Construction of ship\n";
 		ChangeShip();
 	}
 
 	Ship::Ship(App *parent, float _x, float _y)
-		: GameObject(1.0f, 0.0f, 250.0f), m_parent(parent)
+		: GameObject(1.0f, RADIUS, 0.0f, 250.0f), m_parent(parent)
 	{
 		m_position = Math::Vector2(_x, _y);
 		std::cout << "Construction of ship\n";
@@ -42,7 +42,6 @@ namespace Engine
 
 	void Ship::RotateLeft(float deltaTime)
 	{
-
 		m_angle += m_rotation * deltaTime;
 	}
 
@@ -59,25 +58,25 @@ namespace Engine
 
 	void Ship::Update(float deltaTime)
 	{
-		//calculate speed
+		// Calculate speed
 		float speed =
 			std::fabs(m_velocity.Length());
 
-		//Cap speed
+		// Cap speed
 		if (speed > MAX_VELOCITY)
 		{
 			m_velocity.x = (m_velocity.x / speed) * MAX_VELOCITY;
 			m_velocity.y = (m_velocity.y / speed) * MAX_VELOCITY;
 		}
 
-		//Set new state
+		// Set new state
 		m_currentSpeed = speed;
 		m_position.x += m_velocity.x * deltaTime;
 		m_position.y += m_velocity.y * deltaTime;
 
-		//Applies drag
-
+		// Applies drag
 		ApplyDrag(Math::Vector2(DRAG_FORCE));
+
 		GameObject::Update(m_parent, deltaTime);
 	}
 
@@ -101,7 +100,7 @@ namespace Engine
 			m_points.push_back(Math::Vector2(-6.0, -4.0));
 			m_points.push_back(Math::Vector2(-12.0, -10.0));
 			break;
-		/*case 2:
+			/*case 2:
 			m_points.push_back(Math::Vector2(0.0, 90.0));
 			m_points.push_back(Math::Vector2(3.0, 84.0));
 			m_points.push_back(Math::Vector2(9.5, 84.0));
@@ -203,10 +202,10 @@ namespace Engine
 			m_points.push_back(Math::Vector2(-8.0f, 40.0f));
 			break;
 
-		//default:
+			//default:
 			/* ===========BIG SHIP============*/
 
-		/*	m_points.push_back(Math::Vector2(0.0, 150.0));
+			/*	m_points.push_back(Math::Vector2(0.0, 150.0));
 			m_points.push_back(Math::Vector2(2.5, 145.0));
 			m_points.push_back(Math::Vector2(7.5, 145.0));
 			m_points.push_back(Math::Vector2(12.5, 135.0));

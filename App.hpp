@@ -10,13 +10,14 @@
 //
 #include "SDLEvents.hpp"
 #include "TimeManager.hpp"
+#include "Asteroid.hpp"
 
 namespace Engine
 {
     class GameObject;
-    class Bullet;
     class Ship;
     class Asteroid;
+    class Bullet;
     class App : public SDLEvent
     {
     public:
@@ -64,6 +65,7 @@ namespace Engine
         void OnExit() override;
         void OnKeyDown(SDL_KeyboardEvent keyBoardEvent) override;
         void OnKeyUp(SDL_KeyboardEvent keyBoardEvent) override;
+        void UpdateScore(int delta);
 
         /*=========================================================================
         *           GAME FUNCTIONS  
@@ -71,6 +73,9 @@ namespace Engine
 
         void CleanGameObjects();
         void CreateBullet();
+        void CreateAsteroid(Engine::Asteroid::AsteroidSize::Size size, int amount, float x, float y);
+        void CreateDebris(Engine::Asteroid *object);
+        void CheckCollision();
         void DestroyGameObject(Engine::GameObject *object);
 
         /* =============================================================
@@ -86,10 +91,11 @@ namespace Engine
         GameState::State m_state;
         Engine::TimeManager *m_timer;
         Engine::Ship *m_ship;
-        Engine::Asteroid *m_asteroid;
         Engine::Ship *m_current_Ship;
         std::list<Engine::GameObject *> m_objects;
         std::list<Engine::Bullet *> m_bullets;
+        std::list<Engine::Asteroid *> m_asteroids;
+        int m_score;
     };
 } // namespace Engine
 

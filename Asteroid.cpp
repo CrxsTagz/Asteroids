@@ -4,7 +4,6 @@
 #include <vector>
 #include <cstdlib>
 #include <cmath>
-#include "GameObject.hpp"
 
 namespace Engine
 {
@@ -17,10 +16,10 @@ namespace Engine
     const float MIN_SIZE = 25.0f;
     const float MAX_SIZE = 45.0f;
 
-    Asteroid::Asteroid(App *parent)
-        : GameObject(1.0f, 0.0f, 120.0f), m_parent(parent)
+    Asteroid::Asteroid(AsteroidSize::Size size, App *parent)
+        : GameObject(1.0f, 1.0f, 0.0f, 120.0f), m_parent(parent), m_size(size)
     {
-        float sizeFactor = 1;
+        float sizeFactor = (int)m_size + 1;
         float min = MIN_SIZE / sizeFactor;
         float max = MAX_SIZE / sizeFactor;
 
@@ -32,8 +31,11 @@ namespace Engine
                                                      cosf(radians) * randDist));
         }
 
+        m_radius = (min + max) * 0.5f;
+
         float x = randInRange(-150.0f, 150.0f);
         float y = randInRange(-150.0f, 150.0f);
+        
         ApplyImpulse(Engine::Math::Vector2(x, y), m_rotation);
     }
 
@@ -43,22 +45,3 @@ namespace Engine
         GameObject::Update(m_parent, deltaTime);
     }
 } // namespace Engine
-
-/* for (int i = 0; i < 16; i++)
-        {
-            float x = randInRange(-150.0f, 150.0f);
-            float y = randInRange(-150.0f, 150.0f);
-            m_position = Engine::Math::Vector2(x, y);
-            ApplyImpulse(Engine::Math::Vector2(x, y));
-            glLoadIdentity();
-            glTranslatef(m_position.x, m_position.y, 0.f);
-            glRotatef(m_angle, 0.0f, 0.0f, 1.0f);
-
-            glBegin(GL_LINE_LOOP);
-            std::vector<Engine::Math::Vector2>::iterator it = m_points.begin();
-            for (; it != m_points.end(); ++it)
-            {
-                glVertex2f((*it).x, (*it).y);
-            }
-            glEnd();
-        }*/
