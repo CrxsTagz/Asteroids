@@ -13,7 +13,7 @@
 
 namespace Engine
 {
-	const float DESIRED_FRAME_RATE = 60.0f;
+	const float DESIRED_FRAME_RATE = 50.0f;
 	const float DESIRED_FRAME_TIME = 1.0f / DESIRED_FRAME_RATE;
 	int m_dimensions[2];
 
@@ -231,12 +231,12 @@ namespace Engine
 		{
 
 		case SDL_SCANCODE_W:
-			SDL_Log("Going up");
+			//SDL_Log("Going up");
 			m_ship->MoveUp();
 			break;
 
 		case SDL_SCANCODE_A:
-			SDL_Log("Going left");
+			//SDL_Log("Going left");
 			m_ship->RotateLeft(DESIRED_FRAME_TIME);
 			break;
 
@@ -244,7 +244,7 @@ namespace Engine
 			break;
 
 		case SDL_SCANCODE_D:
-			SDL_Log("Going right");
+			//SDL_Log("Going right");
 			m_ship->RotateRight(DESIRED_FRAME_TIME);
 			break;
 
@@ -259,11 +259,11 @@ namespace Engine
 
 		case SDL_SCANCODE_R:
 			SDL_Log("Restart!");
-				RespawnShip();
+			RespawnShip();
 			break;
 
 		case SDL_SCANCODE_SPACE:
-			SDL_Log("Shooting!");
+			//SDL_Log("Shooting!");
 			CreateBullet();
 			break;
 
@@ -277,6 +277,23 @@ namespace Engine
 	{
 		switch (keyBoardEvent.keysym.scancode)
 		{
+
+		case SDL_SCANCODE_W:
+			m_ship->MoveUp();
+
+		case SDL_SCANCODE_A:
+			//SDL_Log("Going left");
+			m_ship->RotateLeft(DESIRED_FRAME_TIME);
+			break;
+
+		case SDL_SCANCODE_S:
+			break;
+
+		case SDL_SCANCODE_D:
+			//SDL_Log("Going right");
+			m_ship->RotateRight(DESIRED_FRAME_TIME);
+			break;
+
 		case SDL_SCANCODE_ESCAPE:
 			OnExit();
 			break;

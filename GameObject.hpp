@@ -40,6 +40,7 @@ namespace Engine
         inline bool IsColliding() { return m_state == GameObjectState::COLLIDED; }
         inline float GetX() { return m_position.x; }
         inline float GetY() { return m_position.y; }
+        Pamp();
 
     protected:
         /* ==========================

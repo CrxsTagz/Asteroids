@@ -32,7 +32,7 @@ namespace Engine
         void RotateRight(float deltaTime);
         void Update(float deltaTime);
         void Respawn();
-        void RespawnShip();
+        Pamp();
         Bullet *Shoot();
 
     private:

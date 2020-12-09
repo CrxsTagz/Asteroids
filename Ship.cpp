@@ -100,7 +100,7 @@ namespace Engine
 			m_points.push_back(Math::Vector2(-6.0, -4.0));
 			m_points.push_back(Math::Vector2(-12.0, -10.0));
 			break;
-		/*case 2:
+			/*case 2:
 			m_points.push_back(Math::Vector2(0.0, 90.0));
 			m_points.push_back(Math::Vector2(3.0, 84.0));
 			m_points.push_back(Math::Vector2(9.5, 84.0));
@@ -122,7 +122,7 @@ namespace Engine
 			m_points.push_back(Math::Vector2(0.0, 90.0));
 			break;*/
 
-	/*	default:
+			/*	default:
 			// ===========BIG SHIP============
 
 			m_points.push_back(Math::Vector2(0.0, 150.0));
