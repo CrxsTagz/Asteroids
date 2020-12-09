@@ -59,8 +59,6 @@ namespace Engine
     void GameObject::Render()
     {
         //
-        DrawCircle(m_position.x, m_position.y, m_radius, 64);
-
         glLoadIdentity();
         glTranslatef(m_position.x, m_position.y, 0.f);
         glRotatef(m_angle, 0.0f, 0.0f, 1.0f);
@@ -92,7 +90,6 @@ namespace Engine
     bool GameObject::DetectCollision(GameObject *object)
     {
         float radii = m_radius + object->m_radius;
-        //radii ^ 2 >= (x0 - x1) ^ 2 + (y0 - y1) ^ 2)
 
         float xdiff = m_position.x - object->m_position.x;
         float ydiff = m_position.y - object->m_position.y;

@@ -8,7 +8,6 @@
 
 //
 #include "Ship.hpp"
-//#include "Asteroid.hpp"
 #include "GameObject.hpp"
 #include "Bullet.hpp"
 
@@ -111,9 +110,6 @@ namespace Engine
 			// Destroy it!
 			//SDL_Log("Entity will be deleted!");
 			DestroyGameObject(*iter);
-			std::cout << "Your score is:  " << m_score << std::endl;
-
-			//m_ship->Respawn();
 		}
 	}
 
@@ -144,6 +140,12 @@ namespace Engine
 			}
 		}
 	}
+
+	/*void App::RespawnDead()
+	{
+		m_ship = new Engine::Ship(this);
+		m_objects.push_back(m_ship);
+	}*/
 
 	void App::CreateAsteroid(Asteroid::AsteroidSize::Size size, int amount, float x, float y)
 	{

@@ -66,6 +66,7 @@ namespace Engine
         void OnKeyDown(SDL_KeyboardEvent keyBoardEvent) override;
         void OnKeyUp(SDL_KeyboardEvent keyBoardEvent) override;
         void UpdateScore(int delta);
+       // void RespawnDead();
 
         /*=========================================================================
         *           GAME FUNCTIONS  

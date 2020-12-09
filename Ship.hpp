@@ -31,8 +31,8 @@ namespace Engine
         void RotateLeft(float deltaTime);
         void RotateRight(float deltaTime);
         void Update(float deltaTime);
-        // void Render();
         void Respawn();
+        //void RespawnDead();
         Bullet *Shoot();
 
     private:
@@ -48,7 +48,6 @@ namespace Engine
         App *m_parent;
         int m_current_Ship;
         int m_ship;
-        //  Engine::Math::Vector2
     };
 } // namespace Engine
 #endif
