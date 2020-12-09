@@ -197,7 +197,7 @@ namespace Engine
 		auto gameObjectResult = std::find(m_objects.begin(), m_objects.end(), object);
 		auto bulletResult = std::find(m_bullets.begin(), m_bullets.end(), object);
 		auto asteroidResult = std::find(m_asteroids.begin(), m_asteroids.end(), object);
-
+		//auto shipResult = std::find(m_ship.begin(), m_ship.end(), object);
 		// Remove allocation from memory
 		delete object;
 

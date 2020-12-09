@@ -35,7 +35,7 @@ namespace Engine
 
         float x = randInRange(-150.0f, 150.0f);
         float y = randInRange(-150.0f, 150.0f);
-        
+
         ApplyImpulse(Engine::Math::Vector2(x, y), m_rotation);
     }
 

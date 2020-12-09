@@ -10,7 +10,7 @@
 namespace Engine
 {
     Bullet::Bullet(App *parent)
-        : GameObject(1.0f, 1.0f, 0.0f, 0.0f), m_parent(parent), m_lifeSpan(120.0f), m_currentLifeSpan(0.0f)
+        : GameObject(1.0f, 1.0f, 0.0f, 0.0f), m_parent(parent), m_lifeSpan(75.0f), m_currentLifeSpan(0.0f)
     {
     }
 

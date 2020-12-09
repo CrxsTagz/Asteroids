@@ -38,8 +38,9 @@ namespace Engine
         inline bool CouldCollide() { return m_state == GameObjectState::NORMAL; }
         inline bool IsDisappearing() { return m_state == GameObjectState::DELETED; }
         inline bool IsColliding() { return m_state == GameObjectState::COLLIDED; }
-        inline float GetX			( ) { return m_position.x; }
-		inline float GetY			( ) { return m_position.y; }
+        inline float GetX() { return m_position.x; }
+        inline float GetY() { return m_position.y; }
+
     protected:
         /* ==========================
             * PROTECTED FUNCTIONS
