@@ -16,9 +16,6 @@ namespace Engine
 {
 	const float DESIRED_FRAME_RATE = 60.0f;
 	const float DESIRED_FRAME_TIME = 1.0f / DESIRED_FRAME_RATE;
-	bool up = false;
-	bool left = false;
-	bool right = false;
 	int m_dimensions[2];
 
 	inline float randInRange(float min, float max)
@@ -274,15 +271,6 @@ namespace Engine
 	{
 		switch (keyBoardEvent.keysym.scancode)
 		{
-		case SDL_SCANCODE_W:
-			up = true;
-			break;
-		case SDL_SCANCODE_A:
-			left = true;
-			break;
-		case SDL_SCANCODE_D:
-			right = true;
-			break;
 		case SDL_SCANCODE_ESCAPE:
 			OnExit();
 			break;
