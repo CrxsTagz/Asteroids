@@ -124,7 +124,6 @@ namespace Engine
 				{
 					CreateDebris(currentAsteroid);
 				}
-
 				for (std::list<Engine::Bullet *>::iterator bullet = m_bullets.begin(); bullet != m_bullets.end(); ++bullet)
 				{
 					auto currentBullet = (*bullet);
@@ -140,12 +139,6 @@ namespace Engine
 			}
 		}
 	}
-
-	/*void App::RespawnDead()
-	{
-		m_ship = new Engine::Ship(this);
-		m_objects.push_back(m_ship);
-	}*/
 
 	void App::CreateAsteroid(Asteroid::AsteroidSize::Size size, int amount, float x, float y)
 	{
@@ -219,6 +212,12 @@ namespace Engine
 		}
 	}
 
+	void App::RespawnShip()
+	{
+		m_ship = new Engine::Ship(this);
+		m_objects.push_back(m_ship);
+	}
+
 	void App::UpdateScore(int delta)
 	{
 		m_score += delta;
@@ -256,6 +255,11 @@ namespace Engine
 		case SDL_SCANCODE_P:
 			m_ship->Respawn();
 
+			break;
+
+		case SDL_SCANCODE_R:
+			SDL_Log("Restart!");
+				RespawnShip();
 			break;
 
 		case SDL_SCANCODE_SPACE:
