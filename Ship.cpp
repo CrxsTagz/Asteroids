@@ -100,7 +100,7 @@ namespace Engine
 			m_points.push_back(Math::Vector2(-6.0, -4.0));
 			m_points.push_back(Math::Vector2(-12.0, -10.0));
 			break;
-			/*case 2:
+		case 2:
 			m_points.push_back(Math::Vector2(0.0, 90.0));
 			m_points.push_back(Math::Vector2(3.0, 84.0));
 			m_points.push_back(Math::Vector2(9.5, 84.0));
@@ -120,92 +120,12 @@ namespace Engine
 			m_points.push_back(Math::Vector2(-9.5, 84.0));
 			m_points.push_back(Math::Vector2(-3.0, 84.0));
 			m_points.push_back(Math::Vector2(0.0, 90.0));
-			break;*/
-
-		case 2:
-			//STAR WARS//
-			m_points.push_back(Math::Vector2(0.0f, 20.0f));
-			m_points.push_back(Math::Vector2(4.0f, 20.0f));
-			m_points.push_back(Math::Vector2(4.0f, 44.0f));
-			m_points.push_back(Math::Vector2(10.0f, 44.0f));
-			m_points.push_back(Math::Vector2(12.0f, 40.0f));
-			m_points.push_back(Math::Vector2(16.0f, 32.0f));
-			m_points.push_back(Math::Vector2(20.0f, 24.0f));
-			m_points.push_back(Math::Vector2(20.0f, 20.0f));
-			m_points.push_back(Math::Vector2(22.0f, 24.0f));
-			m_points.push_back(Math::Vector2(24.0f, 28.0f));
-			m_points.push_back(Math::Vector2(28.0f, 28.0f));
-			m_points.push_back(Math::Vector2(28.0f, 12.0f));
-			m_points.push_back(Math::Vector2(24.0f, 12.0f));
-			m_points.push_back(Math::Vector2(28.0f, 4.0f));
-			m_points.push_back(Math::Vector2(28.0f, -8.0f));
-			m_points.push_back(Math::Vector2(24.0f, -16.0f));
-			m_points.push_back(Math::Vector2(20.0f, -20.0f));
-			m_points.push_back(Math::Vector2(20.0f, -24.0f));
-			m_points.push_back(Math::Vector2(12.0f, -28.0f));
-			m_points.push_back(Math::Vector2(4.0f, -32.0f));
-			m_points.push_back(Math::Vector2(-4.0f, -32.0f));
-			m_points.push_back(Math::Vector2(-12.0f, -28.0f));
-			m_points.push_back(Math::Vector2(-20.0f, -24.0f));
-			m_points.push_back(Math::Vector2(-20.0f, -20.0f));
-			m_points.push_back(Math::Vector2(-24.0f, -16.0f));
-			m_points.push_back(Math::Vector2(-28.0f, -8.0f));
-			m_points.push_back(Math::Vector2(-28.0f, 4.0f));
-			m_points.push_back(Math::Vector2(-24.0f, 12.0f));
-			m_points.push_back(Math::Vector2(-20.0f, 20.0f));
-			m_points.push_back(Math::Vector2(-20.0f, 24.0f));
-			m_points.push_back(Math::Vector2(-16.0f, 32.0f));
-			m_points.push_back(Math::Vector2(-12.0f, 40.0f));
-			m_points.push_back(Math::Vector2(-10.0f, 44.0f));
-			m_points.push_back(Math::Vector2(-4.0f, 44.0f));
-			m_points.push_back(Math::Vector2(-4.0f, 20.0f));
-
 			break;
-		//STARKSTREK//
+
 		default:
-			m_points.push_back(Math::Vector2(0.0f, 40.0f));
-			m_points.push_back(Math::Vector2(8.0f, 40.0f));
-			m_points.push_back(Math::Vector2(12.0f, 36.0f));
-			m_points.push_back(Math::Vector2(20.0f, 28.0f));
-			m_points.push_back(Math::Vector2(22.0f, 24.0f));
-			m_points.push_back(Math::Vector2(24.0f, 20.0f));
-			m_points.push_back(Math::Vector2(24.0f, 16.0f));
-			m_points.push_back(Math::Vector2(20.0f, 8.0f));
-			m_points.push_back(Math::Vector2(16.0f, 0.0f));
-			m_points.push_back(Math::Vector2(12.0f, -4.0f));
-			m_points.push_back(Math::Vector2(12.0f, -12.0f));
-			m_points.push_back(Math::Vector2(18.0f, -16.0f));
-			m_points.push_back(Math::Vector2(18.0f, -4.0f));
-			m_points.push_back(Math::Vector2(24.0f, -4.0f));
-			m_points.push_back(Math::Vector2(24.0f, -40.0f));
-			m_points.push_back(Math::Vector2(18.0f, -40.0f));
-			m_points.push_back(Math::Vector2(18.0f, -24.0f));
-			m_points.push_back(Math::Vector2(12.0f, -20.0f));
-			m_points.push_back(Math::Vector2(4.0f, -14.0f));
-			m_points.push_back(Math::Vector2(-4.0f, -14.0f));
-			m_points.push_back(Math::Vector2(-12.0f, -20.0f));
-			m_points.push_back(Math::Vector2(-18.0f, -24.0f));
-			m_points.push_back(Math::Vector2(-18.0f, -40.0f));
-			m_points.push_back(Math::Vector2(-24.0f, -40.0f));
-			m_points.push_back(Math::Vector2(-24.0f, -4.0f));
-			m_points.push_back(Math::Vector2(-18.0f, -4.0f));
-			m_points.push_back(Math::Vector2(-18.0f, -16.0f));
-			m_points.push_back(Math::Vector2(-12.0f, -12.0f));
-			m_points.push_back(Math::Vector2(-12.0f, -4.0f));
-			m_points.push_back(Math::Vector2(-16.0f, 0.0f));
-			m_points.push_back(Math::Vector2(-20.0f, 8.0f));
-			m_points.push_back(Math::Vector2(-24.0f, 16.0f));
-			m_points.push_back(Math::Vector2(-24.0f, 20.0f));
-			m_points.push_back(Math::Vector2(-22.0f, 24.0f));
-			m_points.push_back(Math::Vector2(-20.0f, 28.0f));
-			m_points.push_back(Math::Vector2(-12.0f, 36.0f));
-			m_points.push_back(Math::Vector2(-8.0f, 40.0f));
-			break;
-
-			//default:
 			/* ===========BIG SHIP============*/
 
-			/*	m_points.push_back(Math::Vector2(0.0, 150.0));
+			m_points.push_back(Math::Vector2(0.0, 150.0));
 			m_points.push_back(Math::Vector2(2.5, 145.0));
 			m_points.push_back(Math::Vector2(7.5, 145.0));
 			m_points.push_back(Math::Vector2(12.5, 135.0));
@@ -251,7 +171,7 @@ namespace Engine
 			m_points.push_back(Math::Vector2(2.5, 145.0));
 			m_points.push_back(Math::Vector2(-2.5, 145.0));
 			m_points.push_back(Math::Vector2(0.0, 150.0));
-			break;*/
+			break;
 		}
 	}
 
